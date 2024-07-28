@@ -2,7 +2,7 @@
 # Suponiendo que 'df' es tu DataFrame y 'ubigeo' es la columna correspondiente
 df['departamento'] = df['UBIGEO'].str[:2]
 
-# Convertir 'departamento' a numérico
+# Convertir 'departamento' a numérico si es que se carga como string
 df['departamento'] = pd.to_numeric(df['departamento'], errors='coerce')
 
 # Definir el diccionario de etiquetas
@@ -36,6 +36,3 @@ departamento_etiq = {
 
 # Asignar las etiquetas a la columna 'departamento'
 df['departamento'] = df['departamento'].map(departamento_etiq)
-
-# Convertir la columna 'departamento' en tipo categórico
-df['departamento'] = df['departamento'].astype('category')
